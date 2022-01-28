@@ -18,7 +18,8 @@
     "dependencies": {
         "express": "^4.17.2",
         "express-rate-limit": "^6.2.0",
-        "bluebird": "^3.7.2"
+        "bluebird": "^3.7.2",
+        "pm2": "^5.1.2"
     },
     "homepage": "https://github.com/Abadima/Evaluate-API"
   }
