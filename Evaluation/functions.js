@@ -34,4 +34,4 @@ async function JS(code) {
 //     })
 // }
 
-module.exports = { JS, PY };
+module.exports = { JS };
