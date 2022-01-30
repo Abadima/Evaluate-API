@@ -2,12 +2,6 @@ var argv = require("process");
 var isBuffer = require("is-buffer");
 var { inspect } = require("util");
 
-const NoNoWords = ["buffer", "exec(", "process"];
-
-if (NoNoWords.some(word => process.argv[2].toString().includes(word))) {
-  console.error("No Thanks, we value our system <3");
-}
-
 if (isBuffer(process.argv[2])) {
   console.error("No Thanks, we value our system <3");
 }

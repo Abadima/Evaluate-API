@@ -2,14 +2,8 @@ import { argv } from 'process'
 import isBuffer from 'is-buffer'
 import { inspect } from 'util'
 
-const NoNoWords = ["buffer", "exec(", "process"]
-
-if (NoNoWords.some(word => argv[2].toString().includes(word))) {
-	console.error("No Thanks, we value our system <3")
-}
-
 if (isBuffer(argv[2])) {
-    console.error("No Thanks, we value our system <3")
+	console.error("No Thanks, we value our system <3")
 }
 
 try {

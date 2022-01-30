@@ -1,5 +1,4 @@
 from logging import error
-import setuptools
 import sys
 
 NoNoWords = ["sysconfig"]
