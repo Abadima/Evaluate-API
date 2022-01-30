@@ -1,11 +1,14 @@
-from lib2to3.pgen2.literals import evalString
 from logging import error
-from sre_parse import TYPE_FLAGS
+import inspect
 import sys
 
 try:
-    result = evalString(sys.argv[1])
-    print(result)
+    evaled = eval(sys.argv[1])
+    res = isinstance(sys.argv[1], str)
+    if isinstance(sys.argv[1], str):
+        evaled
+    else:
+        inspect(evaled)
 
 except Exception as err:
     error(err)
