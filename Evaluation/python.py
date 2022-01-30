@@ -7,8 +7,10 @@ try:
     res = isinstance(sys.argv[1], str)
     if isinstance(sys.argv[1], str):
         evaled
+        print(evaled)
     else:
         inspect(evaled)
+        print(evaled)
 
 except Exception as err:
     error(err)
