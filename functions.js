@@ -2,7 +2,7 @@ var spawn = require("child_process").spawn
 
 
 async function CFS(code) {
-//    const coffeescript = spawn('node', ["./Evaluation/coffeescript.coffee", code])
+//    const coffeescript = spawn('node', ["./Evaluation/coffeescript.coffee", `${code}`])
 return([ "error", "CoffeeScript is Broken (For Now)" ])
 //    return new Promise((resolve, reject) => {
 //        coffeescript.stdout.on("data", data => {
@@ -37,7 +37,7 @@ async function CS(code) {
 }
 
 async function JS(code) {
-    const javascript = spawn('node', ["./Evaluation/javascript.mjs", code])
+    const javascript = spawn('node', ["./Evaluation/javascript.mjs", `${code}`])
 
     return new Promise((resolve, reject) => {
         javascript.stdout.on("data", data => {
@@ -69,7 +69,7 @@ async function JS(code) {
     });
 }
 
-async function LUA(code) { // const lua = spawn('unknown', ["./Evaluation/lua.lua", code])
+async function LUA(code) { // const lua = spawn('unknown', ["./Evaluation/lua.lua", `${code}`])
 
     return (["error", "Lua Not Available"])
     // return new Promise((resolve, reject) => {
@@ -95,7 +95,7 @@ async function LUA(code) { // const lua = spawn('unknown', ["./Evaluation/lua.lu
 }
 
 async function PY(code) {
-    const python = spawn('python', ["./Evaluation/python.py", code])
+    const python = spawn('python', ["./Evaluation/python.py", `${code}`])
 
     return new Promise((resolve, reject) => {
         python.stdout.on("data", data => {
@@ -130,7 +130,7 @@ async function PY(code) {
 }
 
 async function TS(code) {
-    const typescript = spawn('node', ["./Evaluation/typescript.ts", code])
+    const typescript = spawn('node', ["./Evaluation/typescript.ts", `${code}`])
 
     return new Promise((resolve, reject) => {
         typescript.stdout.on("data", data => {
