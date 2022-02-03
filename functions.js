@@ -37,7 +37,7 @@ async function CS(code) {
 }
 
 async function JS(code) {
-    const javascript = spawn('node', ["./Evaluation/javascript.mjs", `${code}`])
+    const javascript = spawn('node', ["./Evaluation/javascript.js", `${code}`])
 
     return new Promise((resolve, reject) => {
         javascript.stdout.on("data", data => {

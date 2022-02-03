@@ -4,13 +4,16 @@ import sys
 
 try:
     evaled = eval(sys.argv[1])
-    res = isinstance(sys.argv[1], str)
     if isinstance(sys.argv[1], str):
         evaled
-        print(evaled)
     else:
         inspect(evaled)
-        print(evaled)
 
 except Exception as err:
-    error(err)
+    if err == 'ERROR:root:invalid syntax (<string>, line 1)':
+        try:
+            eval(sys.argv[1])
+        except Exception as err:
+            error(err)
+    else:
+        error(err)
