@@ -13,7 +13,7 @@ try {
 catch (error) {
 	if (error.toString() === "ReferenceError: evaled is not defined") {
 		try {
-			var results = eval(process.argv[2]);
+			var results = evaled
 			console.log(results);
 		}
 		catch (error) {
