@@ -1,35 +1,68 @@
 var spawn = require("child_process").spawn
 
+async function BF(code) {
+    return (["error", "Brainfuck Not Available"])
+    //     const brainfuck = spawn('node', ["./Evaluation/brainfuck.bf", `${code}`])
+    // 
+    //     return new Promise((resolve, reject) => {
+    //         brainfuck.stdout.on("data", data => {
+    //             resolve([
+    //                 "success", data.toString().slice(0, -1)
+    //             ]);
+    //             javascript.kill()
+    //         })
+    //         brainfuck.stderr.on('data', (data) => {
+    //             resolve([
+    //                 "error", data.toString().split('\n')[0]
+    //             ]);
+    //             brainfuck.kill()
+    //         })
+    //         brainfuck.on('exit', (code) => {
+    //             if (!code && !'0') {
+    //                 reject("Evaluation Closed");
+    //             } else {
+    //                 if (code != 0)
+    //                     resolve(["error", `Exit Code ${code}`])
+    // 
+    //                 if (code == 0)
+    //                     resolve(["success", `Successful Exit Code ${code}`])
+    // 
+    //             }
+    //         })
+    //     }).catch(error => {
+    //         return (["fatal", error])
+    //     });
+}
 
 async function CFS(code) {
-//    const coffeescript = spawn('node', ["./Evaluation/coffeescript.coffee", `${code}`])
-return([ "error", "CoffeeScript is Broken (For Now)" ])
-//    return new Promise((resolve, reject) => {
-//        coffeescript.stdout.on("data", data => {
-//            resolve([
-//                "success", data.toString().slice(0, -1)
-//            ]);
-//            coffeescript.kill()
-//        })
-//        coffeescript.stderr.on('data', (data) => {
-//            resolve(["error", data.toString()]) // .split('\n')[0]]);
-//            coffeescript.kill()
-//        })
-//        coffeescript.on('exit', (code) => {
-//            if (!code && !'0') {
-//                reject("Evaluation Closed");
-//            } else {
-//                if (code != 0)
-//                    resolve(["error", `Exit Code ${code}`])
-//
-//                if (code == 0)
-//                    resolve(["success", `Successful Exit Code ${code}`])
-//
-//            }
-//        })
-//    }).catch(error => {
-//        return (["fatal", error])
-//    });
+    //    const coffeescript = spawn('node', ["./Evaluation/coffeescript.coffee", `${code}`])
+    return (["error", "CoffeeScript is Broken (For Now)"])
+    //    return new Promise((resolve, reject) => {
+    //        coffeescript.stdout.on("data", data => {
+    //            resolve([
+    //                "success", data.toString().slice(0, -1)
+    //            ]);
+    //            coffeescript.kill()
+    //        })
+    //        coffeescript.stderr.on('data', (data) => {
+    //            resolve(["error", data.toString()]) // .split('\n')[0]]);
+    //            coffeescript.kill()
+    //        })
+    //        coffeescript.on('exit', (code) => {
+    //            if (!code && !'0') {
+    //                reject("Evaluation Closed");
+    //            } else {
+    //                if (code != 0)
+    //                    resolve(["error", `Exit Code ${code}`])
+    //
+    //                if (code == 0)
+    //                    resolve(["success", `Successful Exit Code ${code}`])
+    //
+    //            }
+    //        })
+    //    }).catch(error => {
+    //        return (["fatal", error])
+    //    });
 }
 
 async function CS(code) {
@@ -162,4 +195,4 @@ async function TS(code) {
     });
 }
 
-module.exports = { CFS, CS, JS, PY, LUA, TS }
+module.exports = { BF, CFS, CS, JS, PY, LUA, TS }
