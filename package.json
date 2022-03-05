@@ -14,9 +14,10 @@
     "author": "Abadima",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/monatheoctocat/my_package/issues"
+        "url": "https://github.com/Abadima/Evaluate-API/issues"
     },
     "dependencies": {
+        "brainfuck-node": "^1.0.2",
         "express": "^4.17.3",
         "express-rate-limit": "^6.3.0",
         "is-buffer": "^2.0.5",

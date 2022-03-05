@@ -1,37 +1,36 @@
 var spawn = require("child_process").spawn
 
 async function BF(code) {
-    return (["error", "Brainfuck Not Available"])
-    //     const brainfuck = spawn('node', ["./Evaluation/brainfuck.bf", `${code}`])
-    // 
-    //     return new Promise((resolve, reject) => {
-    //         brainfuck.stdout.on("data", data => {
-    //             resolve([
-    //                 "success", data.toString().slice(0, -1)
-    //             ]);
-    //             javascript.kill()
-    //         })
-    //         brainfuck.stderr.on('data', (data) => {
-    //             resolve([
-    //                 "error", data.toString().split('\n')[0]
-    //             ]);
-    //             brainfuck.kill()
-    //         })
-    //         brainfuck.on('exit', (code) => {
-    //             if (!code && !'0') {
-    //                 reject("Evaluation Closed");
-    //             } else {
-    //                 if (code != 0)
-    //                     resolve(["error", `Exit Code ${code}`])
-    // 
-    //                 if (code == 0)
-    //                     resolve(["success", `Successful Exit Code ${code}`])
-    // 
-    //             }
-    //         })
-    //     }).catch(error => {
-    //         return (["fatal", error])
-    //     });
+    const brainfuck = spawn('node', ["./Evaluation/brainfuck.js", `${code}`])
+
+    return new Promise((resolve, reject) => {
+        brainfuck.stdout.on("data", data => {
+            resolve([
+                "success", data.toString().substring(7)
+            ]);
+            brainfuck.kill()
+        })
+        brainfuck.stderr.on('data', (data) => {
+            resolve([
+                "error", "We're unable to provide the error at this time. \n You should recheck your code." //data.toString().substring(7)
+            ]);
+            brainfuck.kill()
+        })
+        brainfuck.on('exit', (code) => {
+            if (!code && !'0') {
+                reject("Evaluation Closed");
+            } else {
+                if (code != 0)
+                    resolve(["error", `Exit Code ${code}`])
+
+                if (code == 0)
+                    resolve(["success", `Successful Exit Code ${code}`])
+
+            }
+        })
+    }).catch(error => {
+        return (["fatal", error])
+    });
 }
 
 async function CFS(code) {
