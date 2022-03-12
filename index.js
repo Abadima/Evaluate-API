@@ -8,7 +8,7 @@ const Languages = ["bf", "cfs", "cs", "js", "py", "ts", "lua"]
 
 const requests = ratelimit({
     windowMs: 5 * 60 * 1000,
-    max: 80,
+    max: 45,
     message: {
         status: "error",
         message: "Too Many Requests"
