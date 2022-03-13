@@ -3,7 +3,7 @@ import inspect
 import sys
 import os
 
-if (sys.argv[1].__contains__('os.system') or sys.argv[1].__contains__('subprocess')):
+if (sys.argv[1].__contains__('system') or sys.argv[1].__contains__('subprocess')):
     error("We can't let you do that.")
 
 try:
