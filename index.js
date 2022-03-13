@@ -7,10 +7,10 @@ const Languages = ["bf", "cfs", "cs", "js", "py", "ts", "lua"]
 
 const requests = ratelimit({
     windowMs: 5 * 60 * 1000,
-    max: 45,
+    max: 40,
     message: {
-        status: "error",
-        message: "Too Many Requests"
+        status: "fatal",
+        result: "Calm down! You're going too fast."
     }
 });
 

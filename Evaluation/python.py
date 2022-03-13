@@ -1,6 +1,5 @@
 from logging import error
-import inspect
-import sys
+import inspect, sys, os
 
 try:
     evaled = eval(sys.argv[1])
