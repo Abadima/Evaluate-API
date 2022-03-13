@@ -1,4 +1,4 @@
-# Abadima's Rich Presence
+# Abadima's Evaluation API
 
 <div align="center">
   <a href="https://nodejs.org/en/download/">
