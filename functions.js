@@ -2,21 +2,29 @@ var spawn = require("child_process").spawn
 
 async function BF(code) {
     const brainfuck = spawn('node', ["./Evaluation/brainfuck.js", `${code}`])
+    function timeout() {
+        brainfuck.kill()
+        return (["fatal", "No Output Detected"])
+    }
+    const tSystem = setTimeout(timeout, 2000)
 
     return new Promise((resolve, reject) => {
         brainfuck.stdout.on("data", data => {
+            clearTimeout(tSystem)
             resolve([
                 "success", data.toString().substring(7)
             ]);
             brainfuck.kill()
         })
         brainfuck.stderr.on('data', (data) => {
+            clearTimeout(tSystem)
             resolve([
                 "error", "We're unable to provide the error at this time. \n You should recheck your code." //data.toString().substring(7)
             ]);
             brainfuck.kill()
         })
         brainfuck.on('exit', (code) => {
+            clearTimeout(tSystem)
             if (!code && !'0') {
                 reject("Evaluation Closed");
             } else {
@@ -29,6 +37,7 @@ async function BF(code) {
             }
         })
     }).catch(error => {
+        clearTimeout(tSystem)
         return (["fatal", error])
     });
 }
@@ -70,21 +79,28 @@ async function CS(code) {
 
 async function JS(code) {
     const javascript = spawn('node', ["./Evaluation/javascript.js", `${code}`])
-
+    function timeout() {
+        javascript.kill()
+        return (["fatal", "No Output Detected"])
+    }
+    const tSystem = setTimeout(timeout, 2000)
     return new Promise((resolve, reject) => {
         javascript.stdout.on("data", data => {
+            clearTimeout(tSystem)
             resolve([
                 "success", data.toString().slice(0, -1)
             ]);
             javascript.kill()
         })
         javascript.stderr.on('data', (data) => {
+            clearTimeout(tSystem)
             resolve([
                 "error", data.toString().split('\n')[0]
             ]);
             javascript.kill()
         })
         javascript.on('exit', (code) => {
+            clearTimeout(tSystem)
             if (!code && !'0') {
                 reject("Evaluation Closed");
             } else {
@@ -128,21 +144,29 @@ async function LUA(code) { // const lua = spawn('unknown', ["./Evaluation/lua.lu
 
 async function PY(code) {
     const python = spawn('python', ["./Evaluation/python.py", `${code}`])
+    function timeout() {
+        python.kill()
+        return (["fatal", "No Output Detected"])
+    }
+    const tSystem = setTimeout(timeout, 2000)
 
     return new Promise((resolve, reject) => {
         python.stdout.on("data", data => {
+            clearTimeout(tSystem)
             resolve([
                 "success", data.toString().split('\r\n')[0]
             ]);
             python.kill()
         })
         python.stderr.on('data', (error) => {
+            clearTimeout(tSystem)
             reject([
                 "error", error.toString().split('\r')[0]
             ]);
             python.kill()
         })
         python.on('exit', (code) => {
+            clearTimeout(tSystem)
             if (!code && !'0') {
                 reject("Evaluation Closed");
             } else {
@@ -155,6 +179,7 @@ async function PY(code) {
             }
         })
     }).catch(error => {
+        clearTimeout(tSystem)
         return ([
             "error", error[1]
         ])
@@ -163,21 +188,29 @@ async function PY(code) {
 
 async function TS(code) {
     const typescript = spawn('node', ["./Evaluation/typescript.ts", `${code}`])
+    function timeout() {
+        typescript.kill()
+        return (["fatal", "No Output Detected"])
+    }
+    const tSystem = setTimeout(timeout, 2000)
 
     return new Promise((resolve, reject) => {
         typescript.stdout.on("data", data => {
+            clearTimeout(tSystem)
             resolve([
                 "success", data.toString().slice(0, -1)
             ]);
             typescript.kill()
         })
         typescript.stderr.on('data', (data) => {
+            clearTimeout(tSystem)
             resolve([
                 "error", data.toString().split('\n')[0]
             ]);
             typescript.kill()
         })
         typescript.on('exit', (code) => {
+            clearTimeout(tSystem)
             if (!code && !'0') {
                 reject("Evaluation Closed");
             } else {
@@ -190,6 +223,7 @@ async function TS(code) {
             }
         })
     }).catch(error => {
+        clearTimeout(tSystem)
         return (["fatal", error])
     });
 }
