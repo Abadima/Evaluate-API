@@ -2,7 +2,7 @@ from logging import error
 import inspect
 import sys
 import os
-lst = ["eval", "sys", "inspect", "process"]
+lst = ["eval", "sys", "inspect", "process", "remove","rmdir", "rm", "environ", "mv"]
 
 for x in lst: 
     if (sys.argv[1].__contains__(x)):
