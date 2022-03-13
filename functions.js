@@ -149,7 +149,6 @@ async function PY(code) {
         return (["fatal", "No Output Detected"])
     }
     const tSystem = setTimeout(timeout, 2000)
-
     return new Promise((resolve, reject) => {
         python.stdout.on("data", data => {
             clearTimeout(tSystem)
