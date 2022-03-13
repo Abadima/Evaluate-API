@@ -106,18 +106,14 @@ app.listen(6969, () => {
 })
 
 process.on("unhandledRejection", (reason, p) => {
-	console.log("[Neko's Anti-Crash] Unhandled Rejection/Catch");
-	console.log(reason, p);
+    console.log("[Neko's Anti-Crash] Unhandled Rejection/Catch");
+    console.log(reason, p);
 });
 process.on("uncaughtException", (err, origin) => {
-	console.log("[Neko's Anti-Crash] Uncaught Exception/Catch");
-	console.log(err, origin);
+    console.log("[Neko's Anti-Crash] Uncaught Exception/Catch");
+    console.log(err, origin);
 });
 process.on("uncaughtExceptionMonitor", (err, origin) => {
-	console.log("[Neko's Anti-Crash] Uncaught Exception/Catch (MONITOR)");
-	console.log(err, origin);
-});
-process.on("multipleResolves", (type, promise, reason) => {
-	console.log("[Neko's Anti-Crash] Multiple Resolves");
-	console.log(type, promise, reason);
+    console.log("[Neko's Anti-Crash] Uncaught Exception/Catch (MONITOR)");
+    console.log(err, origin);
 });

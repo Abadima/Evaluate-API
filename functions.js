@@ -143,7 +143,7 @@ async function LUA(code) { // const lua = spawn('unknown', ["./Evaluation/lua.lu
 }
 
 async function PY(code) {
-    const python = spawn('python', ["./Evaluation/python.py", `${code}`])
+    const python = spawn('python3', ["./Evaluation/python.py", `${code}`])
     function timeout() {
         python.kill()
         return (["fatal", "No Output Detected"])
