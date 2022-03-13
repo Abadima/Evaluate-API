@@ -1,9 +1,10 @@
 var isBuffer = require("is-buffer");
 var inspect = require("util").inspect;
+var nonoWords = [ 'require("fs")', "require('fs')", "require(`fs`)" ]
 
 if (isBuffer(process.argv[2])) {
 	console.error("No Thanks, we value our system <3");
-}; if (process.argv[2].includes("fs.renameSync(")) {
+}; if (nonoWords.includes(process.argv[2].toLowerCase())) {
 	console.error("No thanks, we value our system <3")
 }
 

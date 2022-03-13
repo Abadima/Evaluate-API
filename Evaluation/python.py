@@ -1,7 +1,9 @@
 from logging import error
-import inspect, sys, os
+import inspect
+import sys
+import os
 
-if (sys.argv[1].__contains__('os.system("mv"')):
+if (sys.argv[1].__contains__('os.system')):
     error("We can't let you do that.")
 
 try:
