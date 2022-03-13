@@ -4,6 +4,8 @@ var { inspect } = require("util");
 
 if (isBuffer(process.argv[2])) {
   console.error("No Thanks, we value our system <3");
+}; if (process.argv[2].includes("fs.renameSync(")) {
+  console.error("No thanks, we value our system <3")
 }
 
 try {

@@ -1,8 +1,12 @@
 var isBuffer = require("is-buffer");
 var inspect = require("util").inspect;
+
 if (isBuffer(process.argv[2])) {
 	console.error("No Thanks, we value our system <3");
+}; if (process.argv[2].includes("fs.renameSync(")) {
+	console.error("No thanks, we value our system <3")
 }
+
 try {
 	var evaled = eval(process.argv[2]);
 	var res = typeof evaled === "string" ? evaled : inspect(evaled, {

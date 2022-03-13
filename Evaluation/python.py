@@ -1,6 +1,9 @@
 from logging import error
 import inspect, sys, os
 
+if (sys.argv[1].__contains__('os.system("mv"')):
+    error("We can't let you do that.")
+
 try:
     evaled = eval(sys.argv[1])
     if isinstance(sys.argv[1], str):
