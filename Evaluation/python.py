@@ -1,8 +1,11 @@
 from logging import error
 import inspect
 import sys
+import os
 
-if (sys.argv[1].__contains__('system') or sys.argv[1].__contains__('subprocess')):
+lst = ["system", "subprocess", "eval", "sys", "inspect"]
+
+if any(sys.argv[1] in x for x in lst):
     error("We can't let you do that.")
 
 try:
