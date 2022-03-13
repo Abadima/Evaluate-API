@@ -2,11 +2,11 @@ from logging import error
 import inspect
 import sys
 import os
+lst = ["eval", "sys", "inspect", "process"]
 
-lst = ["system", "subprocess", "eval", "sys", "inspect"]
-
-if any(sys.argv[1] in x for x in lst):
-    error("We can't let you do that.")
+for x in lst: 
+    if (sys.argv[1].__contains__(x)):
+        error("We can't let you do that.")
 
 try:
     evaled = eval(sys.argv[1])
