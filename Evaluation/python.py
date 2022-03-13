@@ -2,11 +2,13 @@ from logging import error
 import inspect
 import sys
 import os
-lst = ["eval", "sys", "inspect", "process", "remove","rmdir", "rm", "environ", "mv"]
+lst = ["eval", "sys", "inspect", "process",
+       "remove", "rmdir", "rm", "environ", "mv", "kill"]
 
-for x in lst: 
+for x in lst:
     if (sys.argv[1].__contains__(x)):
         error("We can't let you do that.")
+        exit(1)
 
 try:
     evaled = eval(sys.argv[1])

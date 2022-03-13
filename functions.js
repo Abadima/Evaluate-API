@@ -1,6 +1,7 @@
 var spawn = require("child_process").spawn
 
 async function BF(code) {
+    code = decodeURI(code)
     const brainfuck = spawn('node', ["./Evaluation/brainfuck.js", `${code}`])
     function timeout() {
         brainfuck.kill()
@@ -78,6 +79,7 @@ async function CS(code) {
 }
 
 async function JS(code) {
+    code = decodeURI(code)
     const javascript = spawn('node', ["./Evaluation/javascript.js", `${code}`])
     function timeout() {
         javascript.kill()
@@ -143,6 +145,7 @@ async function LUA(code) { // const lua = spawn('unknown', ["./Evaluation/lua.lu
 }
 
 async function PY(code) {
+    code = decodeURI(code)
     const python = spawn('python3', ["./Evaluation/python.py", `${code}`])
     function timeout() {
         python.kill()
@@ -186,6 +189,7 @@ async function PY(code) {
 }
 
 async function TS(code) {
+    code = decodeURI(code)
     const typescript = spawn('node', ["./Evaluation/typescript.ts", `${code}`])
     function timeout() {
         typescript.kill()
