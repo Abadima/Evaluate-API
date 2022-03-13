@@ -19,7 +19,7 @@
 "Let us run your code, so you don't have to." 
 I have decided to discontinue this (for now) due to my failures, I might work on it again soon, meh
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FAbadima%2Fevaluation-api)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Abadima/Evaluate-API)
 
 ### Website
 ```
