@@ -11,16 +11,14 @@ if (isBuffer(process.argv[2])) {
 // console.error("This endpoint is risky, we can't allow operations for now.")
 try {
 	var evaled = eval(process.argv[2]);
-	const res =
-		typeof evaled === "string" ? evaled : inspect(evaled, {
-			depth: 0
-		});
+	const res = inspect(evaled, {
+		depth: 0
+	});
 	console.log(res);
 } catch (error) {
 	if (error.toString() === "ReferenceError: evaled is not defined") {
 		try {
-			let results = eval(process.argv[2]);
-			console.log(results);
+			console.log(eval(process.argv[2]));
 		} catch (error) {
 			console.error(error);
 		}
